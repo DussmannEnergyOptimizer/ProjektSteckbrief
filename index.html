@@ -2,110 +2,178 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Information zu den Sensoren</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Information zu den Sensoren – CCEE / Dussmann</title>
 
-    <style>
-        :root {
-            --dussmann-red: #E2001A;
-            --text-color: #222;
-            --bg-light: #f5f5f5;
-            --bg-white: #ffffff;
-        }
+  <!-- Basis-Styles im Dussmann-Stil -->
+  <style>
+    :root{
+      --dussmann-red:#E2001A;
+      --text:#222222;
+      --muted:#666666;
+      --bg:#F5F5F5;
+      --white:#FFFFFF;
+    }
 
-        {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: var(--bg-light);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+    /* Reset/Grundlayout */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-        header {
-            background: var(--dussmann-red);
-            color: white;
-            padding: 2rem 1.5rem;
-            text-align: center;
-        }
+    /* Kopfbereich im Dussmann-Rot */
+    header{
+      background: var(--dussmann-red);
+      color: var(--white);
+      padding: clamp(20px, 4vw, 40px) 16px;
+      text-align: center;
+    }
+    header h1{
+      margin:0;
+      font-weight: 800;
+      letter-spacing:.2px;
+      font-size: clamp(22px, 3.4vw, 34px);
+      line-height:1.2;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            font-weight: 700;
-        }
+    /* Hauptkarte */
+    main{
+      max-width: 980px;
+      margin: clamp(16px, 3vw, 36px) auto;
+      padding: 0 16px 32px;
+    }
+    .card{
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      padding: clamp(18px, 3vw, 28px);
+    }
 
-        main {
-            max-width: 900px;
-            margin: 2.5rem auto;
-            padding: 2rem 1.5rem;
-            background: var(--bg-white);
-            border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-        }
+    /* Bildblock */
+    .hero{
+      display:flex;
+      align-items:center;
+      gap: clamp(16px, 3vw, 28px);
+      flex-wrap: wrap;
+    }
+    .hero__img{
+      flex: 0 0 auto;
+      width: clamp(140px, 22vw, 220px);
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+      background: #fff; /* verhindert graue Kanten */
+    }
+    .hero__text{
+      min-width: 260px;
+      flex: 1 1 320px;
+    }
 
-        h2 {
-            color: var(--dussmann-red);
-            margin-top: 2.2rem;
-            font-size: 1.5rem;
-        }
+    h2{
+      color: var(--dussmann-red);
+      margin: 1.25rem 0 .5rem;
+      font-size: clamp(18px, 2.2vw, 22px);
+      line-height:1.3;
+    }
 
-        a {
-            color: var(--dussmann-red);
-            font-weight: bold;
-            text-decoration: none;
-        }
+    p{ margin: .4rem 0 1rem; }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    /* Link-Stil im Markenrot */
+    a{
+      color: var(--dussmann-red);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    a:hover, a:focus{ text-decoration: underline; }
 
-        footer {
-            text-align: center;
-            color: #555;
-            padding: 2rem 1rem 3rem;
-            font-size: 0.9rem;
-        }
-    </style>
+    /* Info-Fuß */
+    footer{
+      text-align: center;
+      color: var(--muted);
+      font-size: .95rem;
+      padding: 24px 12px 40px;
+    }
+
+    /* Kleine Details */
+    .muted{ color: var(--muted); }
+    .spacer{ height: 8px; }
+    .list{
+      margin: .25rem 0 1rem 1rem;
+      padding:0;
+    }
+    .list li{ margin: .35rem 0; }
+  </style>
 </head>
-
 <body>
 
-<header>
+  <!-- Header -->
+  <header>
     <h1>Warum befinden sich hier Sensoren?</h1>
-</header>
+  </header>
 
-<main>
+  <!-- Inhalt -->
+  <main>
+    <div class="card">
 
-    <p>
-        Diese Sensoren erfassen ausschließlich <strong>Temperatur</strong> 
-        und <strong>Luftfeuchtigkeit</strong>. Sie verwenden weder Kameras, noch Mikrofone 
-        und erheben <strong>keinerlei personenbezogene Daten</strong>.
-    </p>
+      <!-- Bild + Intro-Text -->
+      <section class="hero" aria-label="Sensor und Projektinformation">
+        <!-- ⚠️ WICHTIG: Wenn dein Bild anders heißt (z. B. 1754.jpg), ersetze sensor.jpg -->
+        <img
+          src="sensor.jpg"
+          alt="Gebäudesensor des CCEE – weißes Gehäuse, frontseitig mit Sensoröffnung"
+          class="hero__img"
+          loading="eager"
+          decoding="async"
+       ras oder Mikrofone –
+            es werden <strong>keine personenbezogenen Daten</strong> erhoben oder gespeichert.
+          </p>
+          <p class="muted">
+            Ziel: energieeffizientes, komfortables und nachhaltiges Gebäudemanagement – ohne Eingriffe
+            in die Privatsphäre.
+          </p>
+        </div>
+      </section>
 
-    <h2>Wofür werden die Daten genutzt?</h2>
-    <p>
-        Die Messwerte fließen in den 
-        <strong>Dussmann Energy Optimizer (DMEO)</strong>.
-        Sie unterstützen das 
-        <strong>Competence Center Energy Efficiency (CCEE)</strong> dabei,
-        Gebäude energieeffizienter, nachhaltiger und komfortabler zu betreiben.
-    </p>
+      <section aria-labelledby="nutzen">
+        <h2 id="nutzen">Wofür werden die Daten genutzt?</h2>
+        <p>
+          Die Messwerte fließen in den <strong>Dussmann Energy Optimizer (DMEO)</strong>. Dort
+          unterstützt das <strong>Competence Center Energy Efficiency (CCEE)</strong> das Monitoring
+          und die Optimierung von Heizung, Kühlung und Lüftung – für <strong>Effizienz</strong> und
+          <strong>Komfort</strong>.
+        </p>
+        <ul class="list">
+          <li>Transparenz über Raumklima</li>
+          <li>Identifikation von Einsparpotenzialen</li>
+          <li>Fundierte Entscheidungen im Betrieb</li>
+        </ul>
+      </section>
 
-    <h2>Mehr Informationen</h2>
-    <p>
-        Weitere Details zum Energiemanagement findest du hier:<br>
-        <a href="https://de.dussmann.de/energiemanagement"   https://de.dussmann.de/energiemanagement
-        </a>
-    </p>
+      <section aria-labelledby="mehr">
+        <h2 id="mehr">Mehr Informationen</h2>
+        <p>
+          Details zum Energiemanagement bei Dussmann:
+          <br />
+          https://de.dussmann.de/energiemanagement
+            https://de.dussmann.de/energiemanagement
+          </a>
+        </p>
+      </section>
 
-</main>
+    </div>
 
-<footer>
-    © Dussmann Group – Competence Center Energy Efficiency (CCEE)
-</footer>
+    <footer>
+      © Dussmann Group – Competence Center Energy Efficiency (CCEE)
+    </footer>
+  </main>
 
 </body>
 </html>
-
